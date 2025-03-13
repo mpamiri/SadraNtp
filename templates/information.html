@@ -1,0 +1,95 @@
+{% extends 'article/base.html' %}
+{% load static %}
+{% block content0 %}
+<section class = "b-green">
+  <div class = "container">
+    <div class = "row text-center">
+      <div class ="col">
+        Information
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content0 %}
+{% block content %}
+<div class="container text-center status-container" dir = "ltr">
+  <!-- Display Box -->
+  <div id="statusBox" class="status-box">
+      Select a status to view details
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-container">
+      <button class="btn btn-success status-button" onclick="updateStatus('ntp')">NTP Status</button>
+      <button class="btn btn-success status-button" onclick="updateStatus('system')">System Status</button>
+      <button class="btn btn-success status-button" onclick="updateStatus('gnss')">GNSS Status</button>
+  </div>
+</div>
+
+<script>
+  function updateStatus(type) {
+      let statusBox = document.getElementById("statusBox");
+
+      if (type === "ntp") {
+          statusBox.innerHTML = `<strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Good
+              <strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Good
+              <strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Good
+              <strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Good
+              <strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Good
+              <strong>NTP Status:</strong><br> 
+              Synchronization: OK <br> 
+              Stratum: 2 <br> 
+              Offset: 0.034s <br>
+              Last Sync Time: 2024-03-13 12:45:23 <br>
+              Server: time.google.com <br>
+              Connection Stability: Goodddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd`;
+      } else if (type === "system") {
+          statusBox.innerHTML = `<strong>System Status:</strong><br> 
+              CPU Usage: 30% <br> 
+              RAM: 2GB Free <br> 
+              Uptime: 12h 45m <br>
+              Disk Space: 15GB Free <br>
+              Active Processes: 125 <br>
+              Last Reboot: 2 Days Ago`;
+      } else if (type === "gnss") {
+          statusBox.innerHTML = `<strong>GNSS Status:</strong><br> 
+              GPS Fix: Yes <br> 
+              Satellites Connected: 7 <br> 
+              Accuracy: 3m <br>
+              Latitude: 35.6892° N <br>
+              Longitude: 51.3890° E <br>
+              Last Position Update: 10s Ago`;
+      }
+  }
+</script>
+{% endblock content %}

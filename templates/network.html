@@ -1,0 +1,140 @@
+{% extends 'article/base.html' %}
+{% load static %}
+{% block content0 %}
+<section class = "b-green">
+  <div class = "container">
+    <div class = "row text-center">
+      <div class ="col">
+        Network
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content0 %}
+{% block content %}
+<div class="container my-5 main" dir="ltr">
+  <form method="post">
+    {% csrf_token %}
+    
+    <div class="border p-4 rounded mt-4">
+        <h4 class="mb-3">Network Settings:</h4>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">Host Name:</label>
+                {{ form.host_name }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">Name Server 1:</label>
+                {{ form.server_1 }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">Name Server 2:</label>
+                {{ form.server_2 }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">Domain Name:</label>
+                {{ form.domain_name }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="border p-4 rounded mt-4">
+        <h4 class="mb-3">IPv4 Ethernet Port 0 Configuration:</h4>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">IPv4 Address/Mask:</label>
+                {{ form.ipv4_address }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label d-block">Default Gateway:</label>
+                {{ form.gateway }}
+            </div>
+            <div class="col-md-4 mb-3 text-center">
+                <label class="form-label">DHCP:</label>
+                {{ form.dhcp_0 }}
+            </div>
+        </div>
+    </div>
+
+    <div class="border p-4 rounded mt-4">
+        <h4 class="mb-3">IPv4 Ethernet Port 1 Configuration:</h4>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label d-block">IPv4 Address/Mask:</label>
+                {{ form.ipv4_address_1 }}
+            </div>
+            <div class="col-md-6 mb-3 text-center">
+                <label class="form-label">DHCP:</label>
+                {{ form.dhcp_1 }}
+            </div>
+        </div>
+    </div>
+
+    <div class="border p-4 rounded mt-4">
+        <h4 class="mb-3">External NTP Service:</h4>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label d-block">NTP Server Address:</label>
+                {{ form.ntp_server }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label d-block">Authentication Key:</label>
+                {{ form.authentication_key }}
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const dhcpCheckbox = document.getElementById("id_dhcp_0");
+      const ipv4AddressInput = document.getElementById("id_ipv4_address");
+      const gatewayInput = document.getElementById("id_gateway");
+  
+      function toggleInputs() {
+          if (dhcpCheckbox.checked) {
+              ipv4AddressInput.value = "";  // Clear the input
+              gatewayInput.value = "";      // Clear the input
+              ipv4AddressInput.setAttribute("disabled", "true");
+              gatewayInput.setAttribute("disabled", "true");
+          } else {
+              ipv4AddressInput.removeAttribute("disabled");
+              gatewayInput.removeAttribute("disabled");
+          }
+      }
+  
+      // Run on page load (if DHCP is already checked)
+      toggleInputs();
+  
+      // Add event listener for changes
+      dhcpCheckbox.addEventListener("change", toggleInputs);
+  });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dhcpCheckbox = document.getElementById("id_dhcp_1");
+        const ipv4AddressInput = document.getElementById("id_ipv4_address_1");
+    
+        function toggleInputs() {
+            if (dhcpCheckbox.checked) {
+                ipv4AddressInput.value = "";  
+                ipv4AddressInput.setAttribute("disabled", "true");
+ 
+            } else {
+                ipv4AddressInput.removeAttribute("disabled");
+
+            }
+        }
+    
+        // Run on page load (if DHCP is already checked)
+        toggleInputs();
+    
+        // Add event listener for changes
+        dhcpCheckbox.addEventListener("change", toggleInputs);
+    });
+  </script>
+{% endblock content %}
