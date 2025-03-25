@@ -1,0 +1,452 @@
+.b-green{
+  background-color: rgb(0, 170, 90);
+  }
+.logo{
+  width: 150px;
+  height: auto;
+}
+.main{
+  font-size: 14px;
+}
+.custom-submit-button {
+  background-color: #007bff; /* Default blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.status-container {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 50px;
+}
+.status-box {
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 350px; /* حداقل ارتفاع */
+  max-height: 500px; /* حداکثر ارتفاع */
+  overflow-y: auto;  /* اسکرول عمودی */
+  overflow-x: auto;  /* اسکرول افقی */
+  word-wrap: break-word; /* شکستن کلمات بلند */
+  text-align: left; /* متن از چپ به راست */
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#wave {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.status-button {
+  flex: 1;
+  margin: 0 5px;
+}
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.status-button {
+  flex: 1;
+  margin: 0 5px;
+}
+.custom-submit-button:hover {
+  background-color: #28a745; /* Green on hover */
+}
+
+  .b-red{
+    background-color: red;
+  }
+  .green{
+      background-color: white;
+      border-radius: 15px;
+      padding: 0;
+  }
+  .green-page{
+    background-color: rgb(0, 170, 90);
+    border-radius: 15px;
+    padding: 0;
+  }
+  .green-btn{
+    background-color: rgb(0, 170, 90);
+    border-radius: 15px;
+    padding-right: 30px;
+  }
+  .green:hover{
+    background-color: rgb(0, 170, 90);
+    transition: 500ms;
+    border-radius: 15px;
+    padding: 0;
+  }
+  .item{
+    padding: 0;
+  }
+  .headtable{
+    width: 920px;
+    margin-right: 200px;
+  }
+  @media(min-width:0px) and (max-width:400px){
+      .media{
+        height: 150px;
+      }
+      .img{
+        height: 100px;
+        width: 150px;
+      }
+      .map{
+          width: 200px;
+          height: 200px;
+      }
+      .nav-li{
+        padding-right: 0px;
+        text-align: center;
+      }
+  }
+  @media(min-width:400px) and (max-width:767px){
+      .media{
+        height: 250px;
+      }
+      .img{
+        height: 300px;
+      }
+      .map{
+          width: 400px;
+          height: 300px;
+      }
+      .nav-li{
+        padding-right: 0px;
+        text-align: center;
+      }
+  }
+  @media(min-width:768px) and (max-width:991px){
+      .media{
+        height: 350px;
+      }
+      .img{
+        height: 400px;
+      }
+      .map{
+          width: 600px;
+          height: 400px;
+      }
+      .nav-li{
+        padding-right: 0px;
+        text-align: center;
+      }
+  }
+  @media(min-width:992px) and (max-width:2000px) {
+      .media{
+        height: 550px;
+      }
+      .img{
+        height: 500px;
+      }
+      .map{
+          width: 1000px;
+          height: 500px;
+      }
+      nav ul {
+        margin-right: 50px;
+      }
+      .nav-li{
+        padding-right: 30px;
+        text-align: center;
+      }
+  }
+  
+  .list{
+      list-style: none;
+  }
+  nav{
+      padding: 0;
+      margin-right: 20px;
+  }
+  nav ul{
+    padding: 0;
+  }
+  nav ul li a{
+    font-size: 20px;
+    font-weight: normal;
+  }
+  nav{
+    margin: 0;
+  }
+  
+  nav h5 img{
+    height: 50px;
+    margin-right: 30px;
+  }
+  .login{
+  margin-right:20px;
+  }
+  .ham{
+    margin-left: 30px;
+    }
+  .inf{
+  border-style:ridge;
+  border-color: rgb(0, 170, 90);
+  border-radius: 20px;
+  }
+  footer{
+  background-color: rgb(0, 170, 90);
+  }
+  ul{
+    list-style: none;
+  }
+  li {
+    list-style-type: none
+    ;
+  }
+  .blue{
+    color: blue;
+  }
+  .pink{
+    color: rgb(158, 0, 158);
+  }
+  /* Dropdown Button */
+  .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  /* The search field */
+  #myInput {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* The search field when it gets focus/clicked on */
+  #myInput:focus {
+    outline: 3px solid #ddd;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1
+  }
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {
+    display: block;
+  }
+  table, th, td {
+  border: 1px solid black;
+  }
+  #pagination{
+    display: flex;
+    justify-content: center;
+  }
+  .blocks{
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+  }
+  .blocks:not(:first-child){
+    margin-left: 5px;
+  }
+  .blocks:first-child{
+    border-radius: 10px 0 0 10px;
+  }
+  .blocks:last-child{
+    border-radius: 0 10px 10px 0;
+  }
+  .blocks:hover{
+    background-color: #DDDDDD;
+  }
+  #pagination a.active{
+    background-color: #4CAF50;
+  }
+  .first{
+    width: 30%;
+  }
+  .second{
+    width: 30%;
+  }
+  .third{
+    width: 40%;
+  }
+  .mytable {
+    width: 1200;
+    font-size: 20px;
+  }
+  .parstable{
+    width:1300px;
+    table-layout:fixed;
+    font-size: 20px;
+  }
+  .parstable td {
+    height: 40px;
+    word-wrap:break-word;
+    }
+  .parstable th {
+    word-wrap:break-word;
+    }
+  .parstablef{
+    width : 1300px;
+  }
+  .trf{
+    font-size: 1vi;
+  }
+  .extable{
+    width : 1100px;
+    font-size: 20px;
+  }
+  .rfsize{
+    font-size: 20px;
+  }
+  .remove{
+    border: none;
+  }
+  .remove:focus{
+    outline: none;
+  }
+  .hwidth{
+    width: 100%;
+  }
+  .False{
+  color: red;
+  display: inline;
+  border: none;
+  }
+  .false{
+  color: red;   
+  }
+  .True{
+  color: rgb(0, 170, 90);
+  }
+  .none{
+    color: rgb(216, 216, 0);
+  }
+  .None{
+    color: rgb(216, 216, 0);
+    display: inline;
+    border: none;
+  }
+  .Blue{
+  color: blue;
+  display: inline;
+  border: none;
+  }
+  .ex_p{
+  padding: 20px;
+  }     
+  .open_first{
+    width: 4%;
+  }
+  .open_second{
+    width: 25%;
+  }
+  .open_third{
+    width: 25%;
+  }
+  .summary_name{
+    width: 15%;
+  }
+  .summary_n{
+    font-size: 8.5px;
+  }
+  .disease_name{
+    width: 30%;
+  }
+  .disease_age{
+    width : 8%
+  }
+  .disease_month{
+    width: 12%;
+  }
+  .problem_rec{
+    width: 30%;
+  }
+  .problem_pr{
+    width: 30%;
+  }
+  .problem_name{
+    width: 10%;
+  }
+  .summary_age{
+    width: 4%;
+  }
+  .date_year{
+    width : 70px
+  }
+  .box{
+  width: 65px;
+  }
+  .s_box{
+  width : 50px;
+  }
+  .examination_box{
+  width : 70px
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  
+  
+  .personal_w{
+    width : 130px
+  }
+  .des{
+    width : 100%
+  }
+  .autoContain td {
+    height: 40px;
+    overflow: auto;
+  }

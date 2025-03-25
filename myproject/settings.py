@@ -13,8 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-11c9*(&v-a(a2%ml6_6q(^%j09h-nlr4_yz3c1k(fc9&hri@+^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.10' , '192.168.1.100', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,7 +81,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -126,6 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 import os
 
 
@@ -146,9 +147,16 @@ TEMPLATES = [
     },
 ]
 
+
 STATIC_URL = '/static/'
 
+# پوشه‌ای که collectstatic فایل‌های استاتیک را در آن قرار می‌دهد.
+# (توصیه می‌شود از پوشه‌ای متفاوت از پوشه منابع فایل‌های استاتیک استفاده شود)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# (اختیاری) اگر در حین توسعه فایل‌های استاتیک شما در پوشه‌ی "static" نگهداری می‌شود:
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # مسیر پوشه static
+    os.path.join(BASE_DIR, 'static'),
 ]
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+

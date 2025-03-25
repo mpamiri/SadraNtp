@@ -1,0 +1,150 @@
+/* Reuse your CSS styles here; adjust as needed */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .custom-header {
+    width: 100%;
+    background: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem; 
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .custom-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .custom-header .col {
+    flex: 1;
+  }
+  .custom-header .number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .custom-header .main-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .custom-header .custom-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  .custom-header .custom-link:hover {
+    color: #e7e7e7;
+  }
+  
+  .custom-container {
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-top: 100px;
+  }
+  .custom-container-header {
+    background: #4caf50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
+  }
+  .custom-form {
+    padding: 20px;
+    text-align: center;
+  }
+  .custom-form-group {
+    margin-bottom: 20px;
+  }
+  .custom-label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+  .custom-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .custom-input:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  .custom-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .custom-button:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+  }
+  .custom-button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Media Queries for smaller devices (phones) */
+  @media (max-width: 480px) {
+    .custom-header {
+      font-size: 1rem;
+    }
+    .custom-header .number {
+      font-size: 0.7rem;
+    }
+    .custom-header .main-title {
+      font-size: 1.5rem;
+    }
+    .custom-header .custom-link {
+      font-size: 0.8rem;
+    }
+    .custom-container-header {
+      font-size: 1.4rem;
+    }
+    .custom-button {
+      font-size: 0.8rem;
+    }
+    .custom-input {
+      font-size: 0.8rem;
+    }
+  }
+  
