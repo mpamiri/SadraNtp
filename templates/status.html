@@ -1,7 +1,7 @@
 {% extends 'article/base.html' %}
 {% load static %}
 {% block content0 %}
-<section class = "b-green">
+<section class = "mainhead b-green" >
   <div class = "container">
     <div class = "row text-center">
       <div class ="col">
@@ -12,98 +12,100 @@
 </section>
 {% endblock content0 %}
 {% block content %}
-<div class="container my-5 main" dir = "ltr">
-  <div class="border p-4 rounded">
-    <h4 class="mb-3">NTP Server Specification</h4>
-    <div class="row">
-      <div class="col-12 col-md-4 mb-3">
-        <label for="model" class="form-label">Model:</label>
-        <div id="model" class="p-2 border bg-light">S100</div>
+{% for net in networks %}
+  <div class="container my-5 main" dir = "ltr">
+    <div class="border p-4 rounded">
+      <h4 class="mb-3">NTP Server Specification</h4>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+          <label for="model" class="form-label">Model:</label>
+          <div id="model" class="p-2 border bg-light">S100</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="firmware" class="form-label">Firmware Build:</label>
+          <div id="firmware" class="p-2 border bg-light">13 march 2025</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="version" class="form-label">NTP Version:</label>
+          <div id="version" class="p-2 border bg-light">NTP s1.1.0</div>
+        </div>
       </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="firmware" class="form-label">Firmware Build:</label>
-        <div id="firmware" class="p-2 border bg-light">13 march 2025</div>
+    </div>
+    <div class="border p-4 rounded mt-4">
+      <h4 class="mb-3">Network Configuration Settings</h4>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Host name" class="form-label">Host name:</label>
+          <div id="Host name" class="p-2 border bg-light">{{ net.host_name }}</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Ethernet Port 0" class="form-label">Ethernet Port 0 Status:</label>
+          <div id="Ethernet Port 0" class="p-2 border bg-light">Up</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Host IPv4" class="form-label">Host IPv4 Address:</label>
+          <div id="Host IPv4" class="p-2 border bg-light">{{ net.ipv4_address }}</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Domain" class="form-label">Domain:</label>
+          <div id="Domain" class="p-2 border bg-light">{{ net.domain_name }}</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Ethernet Port 1" class="form-label">Ethernet Port 1 Status:</label>
+          <div id="Ethernet Port 1" class="p-2 border bg-light">Up</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Domain IPv4" class="form-label">Domain IPv4 Address:</label>
+          <div id="Domain IPv4" class="p-2 border bg-light">{{ net.ipv4_address_1 }}</div>
+        </div>
       </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="version" class="form-label">NTP Version:</label>
-        <div id="version" class="p-2 border bg-light">NTP s1.1.0</div>
+    </div>
+    <div class="border p-4 rounded mt-4">
+      <h4 class="mb-3">Network Time Protocol Status</h4>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+          <label for="NTP Check" class="form-label">NTP Check Status:</label>
+          <div id="NTP Check" class="p-2 border bg-light">Ok</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="NTP Offset" class="form-label">NTP Offset:</label>
+          <div id="NTP Offset" class="p-2 border bg-light">0.01 msec</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Time" class="form-label">System Time:</label>
+          <div id="Time" class="p-2 border bg-light">2025-march-12 18:20:50</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="NTP Synchronized" class="form-label">NTP Synchronized To:</label>
+          <div id="NTP Synchronized" class="p-2 border bg-light">GNSS</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Stratum" class="form-label">NTP Clock Stratum:</label>
+          <div id="Stratum" class="p-2 border bg-light">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="border p-4 rounded mt-4">
+      <h4 class="mb-3">GNSS Synchronisation Status</h4>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+          <label for="GNSS Status" class="form-label">GNSS Status:</label>
+          <div id="GNSS Status" class="p-2 border bg-light">Ok</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Position" class="form-label">GNSS Position:</label>
+          <div id="Position" class="p-2 border bg-light">long : 2z543.gd522</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Satellites" class="form-label">GNSS Satellites:</label>
+          <div id="Satellites" class="p-2 border bg-light">9</div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <label for="Last Sync" class="form-label">GNSS Last Sync:</label>
+          <div id="Last Sync" class="p-2 border bg-light">2025-march-12 18:20:50</div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="border p-4 rounded mt-4">
-    <h4 class="mb-3">Network Configuration Settings</h4>
-    <div class="row">
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Host name" class="form-label">Host name:</label>
-        <div id="Host name" class="p-2 border bg-light">NTP-SADRA</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Ethernet Port 0" class="form-label">Ethernet Port 0 Status:</label>
-        <div id="Ethernet Port 0" class="p-2 border bg-light">Up</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Host IPv4" class="form-label">Host IPv4 Address:</label>
-        <div id="Host IPv4" class="p-2 border bg-light">192.168.1.38</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Domain" class="form-label">Domain:</label>
-        <div id="Domain" class="p-2 border bg-light">192.168.1.0/100</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Ethernet Port 1" class="form-label">Ethernet Port 1 Status:</label>
-        <div id="Ethernet Port 1" class="p-2 border bg-light">Up</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Domain IPv4" class="form-label">Domain IPv4 Address:</label>
-        <div id="Domain IPv4" class="p-2 border bg-light">192.168.1.20</div>
-      </div>
-    </div>
-  </div>
-  <div class="border p-4 rounded mt-4">
-    <h4 class="mb-3">Network Time Protocol Status</h4>
-    <div class="row">
-      <div class="col-12 col-md-4 mb-3">
-        <label for="NTP Check" class="form-label">NTP Check Status:</label>
-        <div id="NTP Check" class="p-2 border bg-light">Ok</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="NTP Offset" class="form-label">NTP Offset:</label>
-        <div id="NTP Offset" class="p-2 border bg-light">0.01 msec</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Time" class="form-label">System Time:</label>
-        <div id="Time" class="p-2 border bg-light">2025-march-12 18:20:50</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="NTP Synchronized" class="form-label">NTP Synchronized To:</label>
-        <div id="NTP Synchronized" class="p-2 border bg-light">GNSS</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Stratum" class="form-label">NTP Clock Stratum:</label>
-        <div id="Stratum" class="p-2 border bg-light">0</div>
-      </div>
-    </div>
-  </div>
-  <div class="border p-4 rounded mt-4">
-    <h4 class="mb-3">GNSS Synchronisation Status</h4>
-    <div class="row">
-      <div class="col-12 col-md-4 mb-3">
-        <label for="GNSS Status" class="form-label">GNSS Status:</label>
-        <div id="GNSS Status" class="p-2 border bg-light">Ok</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Position" class="form-label">GNSS Position:</label>
-        <div id="Position" class="p-2 border bg-light">long : 2z543.gd522</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Satellites" class="form-label">GNSS Satellites:</label>
-        <div id="Satellites" class="p-2 border bg-light">9</div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <label for="Last Sync" class="form-label">GNSS Last Sync:</label>
-        <div id="Last Sync" class="p-2 border bg-light">2025-march-12 18:20:50</div>
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
 {% endblock content %}

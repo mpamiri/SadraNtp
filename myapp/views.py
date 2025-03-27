@@ -14,7 +14,12 @@ def home_view(request):
 
 @login_required(login_url='/login/')
 def status_view(request):
-    return render(request, 'status.html')
+    network, created = Network.objects.update_or_create(
+        id=1,  # فرض کنید همیشه می‌خواید فقط یک نمونه با شناسه ۱ داشته باشید
+        defaults={}
+    )
+    networks = [network]
+    return render(request, 'status.html', {'networks': networks} )
 
 @login_required(login_url='/login/')
 def information_view(request):
