@@ -7,6 +7,13 @@ from .models import Network
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from .forms import ChangePasswordForm
+from django.http import JsonResponse
+from datetime import datetime
+
+@login_required(login_url='/login/')
+def get_time(request):
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return JsonResponse({"time": current_time})
 
 @login_required(login_url='/login/')
 def home_view(request):

@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import path
-from .views import home_view , status_view , information_view , network_view , ntp_view , notification_view , security_view, system_view , logout_view  
+from .views import get_time , home_view , status_view , information_view , network_view , ntp_view , notification_view , security_view, system_view , logout_view  
 
 urlpatterns = [
     path('', home_view, name='home'),
@@ -12,5 +12,6 @@ urlpatterns = [
     path('security', security_view, name='security'),
     path('system', system_view, name='system'),
     path('logout', logout_view, name='logout'),
+    path('get-time/', get_time, name='get_time'),
 ]
 

@@ -72,8 +72,8 @@
           <div id="NTP Offset" class="p-2 border bg-light">0.01 msec</div>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <label for="Time" class="form-label">System Time:</label>
-          <div id="Time" class="p-2 border bg-light">2025-march-12 18:20:50</div>
+          <label for="time" class="form-label">System Time:</label>
+          <div id="time" class="p-2 border bg-light">2025-march-12 18:20:50</div>
         </div>
         <div class="col-12 col-md-4 mb-3">
           <label for="NTP Synchronized" class="form-label">NTP Synchronized To:</label>
@@ -107,5 +107,16 @@
       </div>
     </div>
   </div>
+  <script>
+    function updateTime() {
+        fetch('/get-time/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('time').innerText = data.time;
+            });
+    }
+    setInterval(updateTime, 1000); // هر ۱ ثانیه آپدیت میشه
+    window.onload = updateTime; // بارگذاری اولیه زمان
+</script>
 {% endfor %}
 {% endblock content %}
