@@ -12,7 +12,8 @@
 </section>
 {% endblock content0 %}
 {% block content %}
-<div class="container text-center status-container" dir = "ltr">
+
+<div class="container text-center status-container" dir="ltr">
   <!-- Display Box -->
   <div id="statusBox" class="status-box">
       Select a status to view details
@@ -29,67 +30,70 @@
 <script>
   function updateStatus(type) {
       let statusBox = document.getElementById("statusBox");
-
       if (type === "ntp") {
           statusBox.innerHTML = `<strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Good
-              <strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Good
-              <strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Good
-              <strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Good
-              <strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Good
-              <strong>NTP Status:</strong><br> 
-              Synchronization: OK <br> 
-              Stratum: 2 <br> 
-              Offset: 0.034s <br>
-              Last Sync Time: 2024-03-13 12:45:23 <br>
-              Server: time.google.com <br>
-              Connection Stability: Goodddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd`;
+              Synchronization: OK<br> 
+              Stratum: 2<br> 
+              Offset: 0.034s<br>
+              Last Sync Time: 2024-03-13 12:45:23<br>
+              Server: time.google.com<br>
+              Connection Stability: Good`;
       } else if (type === "system") {
-          statusBox.innerHTML = `<strong>System Status:</strong><br> 
-              CPU Usage: 30% <br> 
-              RAM: 2GB Free <br> 
-              Uptime: 12h 45m <br>
-              Disk Space: 15GB Free <br>
-              Active Processes: 125 <br>
-              Last Reboot: 2 Days Ago`;
+
+           fetch("/system-log/")
+              .then(response => {
+                  if (!response.ok) throw new Error("Network response was not OK");
+                  return response.json();
+              })
+              .then(data => {
+                  statusBox.innerHTML = `<pre>${data.system_logs}</pre>`;
+              })
+              .catch(error => {
+                  console.error("Error fetching system logs:", error);
+                  statusBox.innerHTML = "Error fetching system logs.";
+              });
+
       } else if (type === "gnss") {
-          statusBox.innerHTML = `<strong>GNSS Status:</strong><br> 
-              GPS Fix: Yes <br> 
-              Satellites Connected: 7 <br> 
-              Accuracy: 3m <br>
-              Latitude: 35.6892° N <br>
-              Longitude: 51.3890° E <br>
-              Last Position Update: 10s Ago`;
+          fetchGpsLog();
       }
   }
+
+  function fetchGpsLog() {
+      fetch("/gps-log/")
+          .then(response => {
+              if (!response.ok) throw new Error("Network response was not OK");
+              return response.json();
+          })
+          .then(data => {
+              document.getElementById("statusBox").innerHTML = `
+                  <strong>GNSS Log:</strong><br>
+                  UTC Time: ${data.time_utc}<br>
+                  GPS Position: ${data.gps_position}<br>
+                  Fix Quality: ${data.fix_quality}<br>
+                  Satellites: ${data.satellites}<br>
+                  HDOP: ${data.hdop}<br>
+                  Altitude: ${data.altitude}<br>
+                  Geoid Height: ${data.geoid_height}<br>
+                  DGPS Update: ${data.dgps_update}<br>
+                  DGPS Ref Station ID: ${data.dgps_ref_station_id}<br>
+                  GPS Status: ${data.gps_status}<br>
+              `;
+          })
+          .catch(error => {
+              console.error("Error fetching GNSS log:", error);
+              document.getElementById("statusBox").innerHTML = "Error fetching GNSS log.";
+          });
+  }
+
+  // برای به‌روز‌رسانی خودکار هر ۲ ثانیه (در صورت نیاز، می‌توان این رو برای بخش gnss هم تنظیم کرد)
+  setInterval(() => {
+      // اگر دکمه gnss انتخاب شده باشد، اطلاعات را آپدیت کن
+      let statusBox = document.getElementById("statusBox");
+      if(statusBox.innerText.includes("GNSS Log:")) {
+          fetchGpsLog();
+      }
+  }, 2000);
 </script>
+
+
 {% endblock content %}

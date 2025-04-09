@@ -45,7 +45,10 @@
   <div class="border p-4 rounded mt-4">
     <h4 class="mb-3">System:</h4>
     <div class="button-container">
-      <button class="btn btn-success status-button" onclick="updateStatus('ntp')">Reboot</button>
+    <form id="rebootForm" method="post" action="{% url 'reboot' %}">
+      {% csrf_token %}
+      <button class="btn btn-success status-button" type="submit" >Reboot</button>
+    </form>
       <button class="btn btn-success status-button" onclick="updateStatus('system')">Reset Factory</button>
     </div>
   </div>

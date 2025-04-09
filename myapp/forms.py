@@ -13,7 +13,7 @@ class NetworkForm(forms.ModelForm):
             'server_1': forms.TextInput(attrs={'class': 'form-control'}),
             'server_2': forms.TextInput(attrs={'class': 'form-control'}),
             'domain_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'ipv4_address': forms.TextInput(attrs={'class': 'form-control'}),
+            'ipv4_address': forms.TextInput(attrs={'class': 'form-control' , 'pattern': "^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\/([0-9]|[1-2][0-9]|3[0-2])$"}),
             'gateway': forms.TextInput(attrs={'class': 'form-control'}),
             'ipv4_address_1': forms.TextInput(attrs={'class': 'form-control'}),
             'ntp_server': forms.TextInput(attrs={'class': 'form-control'}),

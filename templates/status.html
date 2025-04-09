@@ -90,15 +90,15 @@
       <div class="row">
         <div class="col-12 col-md-4 mb-3">
           <label for="GNSS Status" class="form-label">GNSS Status:</label>
-          <div id="GNSS Status" class="p-2 border bg-light">Ok</div>
+          <div id="gps_status" class="p-2 border bg-light">Ok</div>
         </div>
         <div class="col-12 col-md-4 mb-3">
           <label for="Position" class="form-label">GNSS Position:</label>
-          <div id="Position" class="p-2 border bg-light">long : 2z543.gd522</div>
+          <div id="gps_position" class="p-2 border bg-light">long : 2z543.gd522</div>
         </div>
         <div class="col-12 col-md-4 mb-3">
           <label for="Satellites" class="form-label">GNSS Satellites:</label>
-          <div id="Satellites" class="p-2 border bg-light">9</div>
+          <div id="satellite" class="p-2 border bg-light">9</div>
         </div>
         <div class="col-12 col-md-4 mb-3">
           <label for="Last Sync" class="form-label">GNSS Last Sync:</label>
@@ -118,5 +118,26 @@
     setInterval(updateTime, 1000); // هر ۱ ثانیه آپدیت میشه
     window.onload = updateTime; // بارگذاری اولیه زمان
 </script>
+<script>
+    function fetchGPSData() {
+        fetch("/gps_status/")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("satellite").innerText = "Satellites Connected: " + data.satellites;
+                document.getElementById("gps_status").innerText = "GPS Status: " + data.gps_status;
+                
+                if (data.latitude !== null && data.longitude !== null) {
+                    document.getElementById("gps_position").innerText = "GPS Position: " + data.latitude + ", " + data.longitude;
+                } else {
+                    document.getElementById("gps_position").innerText = "GPS Position: Not Available";
+                }
+            })
+            .catch(error => console.error("Error fetching GPS data:", error));
+    }
+
+    setInterval(fetchGPSData, 1000); // هر ثانیه یک‌بار به‌روزرسانی
+    window.onload = fetchGPSData;
+</script>
+
 {% endfor %}
 {% endblock content %}

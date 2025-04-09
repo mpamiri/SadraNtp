@@ -16,10 +16,7 @@ class Network(models.Model):
     ntp_server = models.CharField(max_length=100 , null=True , blank=True)
     authentication_key = models.CharField(max_length=100, blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        # Ensure only one instance exists
-        Network.objects.all().delete()  # Delete old data
-        super(Network, self).save(*args, **kwargs)  # Save new data
+
 
     def __str__(self):
         return self.host_name if self.host_name else "Network Settings"
